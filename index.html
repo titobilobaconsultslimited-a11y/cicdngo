@@ -1,0 +1,1463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CICD — Center for Individual and Child Development</title>
+<meta name="description" content="Center for Individual and Child Development (CICD) is a Lagos-based non-profit developing programs that improve educational, health, social, and economic conditions for women, youths, and children across Nigeria.">
+<meta property="og:title" content="CICD — Center for Individual and Child Development">
+<meta property="og:description" content="A non-profit catalyst for collective action — ending violence, building lives and growing futures across Nigeria since 2017.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CICD — Center for Individual and Child Development">
+<meta name="twitter:description" content="A non-profit catalyst for collective action — ending violence, building lives and growing futures across Nigeria since 2017.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='50' fill='%23e6a800'/><circle cx='50' cy='50' r='42' fill='white'/><rect x='46' y='58' width='8' height='24' rx='3' fill='%231a7a3c'/><ellipse cx='34' cy='50' rx='15' ry='18' fill='%231a7a3c'/><ellipse cx='66' cy='52' rx='13' ry='15' fill='%231a7a3c'/><ellipse cx='50' cy='34' rx='16' ry='18' fill='%231a7a3c'/></svg>" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green: #1a7a3c;
+    --green-light: #2ea050;
+    --gold: #e6a800;
+    --gold-dark: #c48f00;
+    --cream: #fdf8ee;
+    --dark: #0e1f14;
+    --text: #2c3a2e;
+    --white: #ffffff;
+    --accent: #f5a623;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    color: var(--text);
+    background: var(--cream);
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3 { font-family: 'Playfair Display', serif; }
+
+  /* ===== NAV ===== */
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 1000;
+    background: rgba(14,31,20,0.97);
+    backdrop-filter: blur(10px);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 5%;
+    height: 72px;
+    border-bottom: 2px solid var(--gold);
+  }
+
+  .nav-brand {
+    display: flex; align-items: center; gap: 12px;
+    text-decoration: none;
+  }
+
+  /* CICD Logo SVG embedded */
+  .nav-logo-img {
+    width: 46px; height: 46px;
+    border-radius: 50%;
+    background: var(--gold);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+    overflow: hidden;
+  }
+
+  .nav-logo-img svg { width: 100%; height: 100%; }
+
+  .nav-logo-text {
+    display: flex; flex-direction: column;
+  }
+
+  .nav-logo-abbr {
+    font-family: 'Playfair Display', serif;
+    color: var(--gold);
+    font-size: 1.25rem;
+    font-weight: 900;
+    line-height: 1;
+  }
+
+  .nav-logo-full {
+    color: rgba(255,255,255,0.55);
+    font-size: 0.62rem;
+    letter-spacing: 0.5px;
+    line-height: 1.2;
+  }
+
+  .nav-links { display: flex; gap: 1.8rem; list-style: none; }
+  .nav-links a {
+    color: rgba(255,255,255,0.8);
+    text-decoration: none;
+    font-size: 0.88rem;
+    font-weight: 600;
+    letter-spacing: 0.4px;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+
+  .nav-cta {
+    background: var(--gold) !important;
+    color: var(--dark) !important;
+    padding: 8px 20px;
+    border-radius: 4px;
+    font-weight: 700 !important;
+  }
+  .nav-cta:hover { background: var(--gold-dark) !important; }
+
+  /* ===== SECTIONS ===== */
+  section { padding: 90px 8%; }
+
+  .section-label {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--green-light);
+    margin-bottom: 0.9rem;
+    border-left: 3px solid var(--gold);
+    padding-left: 10px;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 13px 30px;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 0.92rem;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s;
+    font-family: 'Nunito', sans-serif;
+    letter-spacing: 0.4px;
+  }
+
+  .btn-primary { background: var(--green); color: var(--white); }
+  .btn-primary:hover { background: var(--green-light); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(26,122,60,0.3); }
+
+  .btn-gold { background: var(--gold); color: var(--dark); }
+  .btn-gold:hover { background: var(--gold-dark); transform: translateY(-2px); }
+
+  .btn-outline { background: transparent; color: var(--white); border: 2px solid rgba(255,255,255,0.6); }
+  .btn-outline:hover { background: var(--white); color: var(--dark); }
+
+  /* ===== HERO ===== */
+  #home {
+    min-height: 100vh;
+    background: linear-gradient(140deg, #0a1c0f 0%, #163328 45%, #0e2a18 100%);
+    display: flex; align-items: center;
+    position: relative;
+    overflow: hidden;
+    padding-top: 72px;
+  }
+
+  #home::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse at 15% 60%, rgba(230,168,0,0.12) 0%, transparent 55%),
+      radial-gradient(ellipse at 85% 25%, rgba(46,160,80,0.12) 0%, transparent 50%);
+  }
+
+  .hero-tree-bg {
+    position: absolute;
+    right: 6%;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.04;
+    font-size: 28rem;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  .hero-content {
+    position: relative; z-index: 2;
+    max-width: 740px;
+    animation: fadeUp 0.9s ease both;
+  }
+
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: rgba(230,168,0,0.12);
+    border: 1px solid rgba(230,168,0,0.35);
+    color: var(--gold);
+    padding: 7px 18px;
+    border-radius: 100px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+  }
+
+  /* inline CICD logo in hero */
+  .hero-badge-logo {
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: inline-flex;
+    flex-shrink: 0;
+  }
+
+  h1.hero-headline {
+    font-size: clamp(2.6rem, 5.5vw, 4.5rem);
+    color: var(--white);
+    line-height: 1.1;
+    margin-bottom: 1.4rem;
+  }
+
+  h1.hero-headline span { color: var(--gold); }
+
+  .hero-mission {
+    font-size: 1.1rem;
+    color: rgba(255,255,255,0.72);
+    line-height: 1.85;
+    max-width: 580px;
+    margin-bottom: 2.5rem;
+  }
+
+  .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+  .hero-reg {
+    margin-top: 1.5rem;
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.35);
+    letter-spacing: 0.5px;
+  }
+
+  .hero-stats {
+    display: flex; gap: 3rem;
+    margin-top: 3.5rem;
+    padding-top: 2.5rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    animation: fadeUp 0.9s 0.25s ease both;
+  }
+
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    color: var(--gold);
+    font-weight: 900;
+    display: block;
+  }
+
+  .stat-label {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.5);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  /* ===== MISSION/VISION STRIP ===== */
+  .mv-strip {
+    background: var(--dark);
+    padding: 60px 8%;
+    display: grid;
+    grid-template-columns: 1fr 1px 1fr;
+    gap: 3rem;
+    align-items: center;
+  }
+
+  .mv-divider { background: rgba(230,168,0,0.25); }
+
+  .mv-item h3 {
+    font-size: 1.4rem;
+    color: var(--gold);
+    margin-bottom: 0.8rem;
+  }
+
+  .mv-item p { color: rgba(255,255,255,0.68); line-height: 1.85; font-size: 0.95rem; }
+
+  /* ===== ABOUT ===== */
+  #about { background: var(--white); }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 5rem;
+    align-items: center;
+  }
+
+  .about-visual { position: relative; }
+
+  .about-logo-box {
+    background: linear-gradient(135deg, var(--gold) 0%, #f5c840 100%);
+    border-radius: 16px;
+    height: 420px;
+    display: flex; align-items: center; justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .about-logo-box::after {
+    content: '';
+    position: absolute;
+    bottom: -22px; right: -22px;
+    width: 130px; height: 130px;
+    border: 4px solid var(--green);
+    border-radius: 8px;
+  }
+
+  /* Big CICD logo in about section */
+  .about-cicd-logo {
+    width: 220px; height: 220px;
+    filter: drop-shadow(0 8px 24px rgba(0,0,0,0.15));
+  }
+
+  .about-badge {
+    position: absolute;
+    top: -20px; left: -20px;
+    background: var(--green);
+    color: var(--white);
+    padding: 16px 20px;
+    border-radius: 8px;
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    text-align: center;
+    line-height: 1.4;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  }
+
+  .about-text h2 { font-size: 2.3rem; color: var(--dark); line-height: 1.2; margin-bottom: 1.2rem; }
+  .about-text p { font-size: 0.97rem; line-height: 1.9; color: #4a5c50; margin-bottom: 1rem; }
+
+  .reg-chip {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--cream);
+    border: 1px solid #d0e4d4;
+    border-radius: 6px;
+    padding: 8px 14px;
+    font-size: 0.8rem;
+    color: var(--green);
+    font-weight: 700;
+    margin-top: 0.5rem;
+    letter-spacing: 0.3px;
+  }
+
+  /* Core Values */
+  .values-section { background: var(--cream); padding: 80px 8%; }
+
+  .values-section h2 { font-size: 2.2rem; color: var(--dark); margin-bottom: 0.5rem; }
+  .values-sub { font-size: 0.95rem; color: #5a6b60; margin-bottom: 2.5rem; }
+
+  .values-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.2rem;
+  }
+
+  .value-card {
+    background: var(--white);
+    border-radius: 10px;
+    padding: 1.4rem;
+    border-top: 3px solid var(--gold);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    transition: transform 0.2s;
+  }
+
+  .value-card:hover { transform: translateY(-4px); }
+
+  .value-icon { font-size: 1.8rem; margin-bottom: 0.6rem; }
+
+  .value-card h4 {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--green);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.3rem;
+  }
+
+  .value-card p { font-size: 0.82rem; color: #5a6b60; line-height: 1.55; }
+
+  /* ===== PROGRAMS ===== */
+  #programs { background: var(--white); }
+
+  #programs h2 { font-size: 2.5rem; color: var(--dark); max-width: 520px; margin-bottom: 0.7rem; }
+  #programs .intro { font-size: 1rem; color: #5a6b60; max-width: 620px; line-height: 1.85; margin-bottom: 3.5rem; }
+
+  .programs-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.8rem;
+    margin-bottom: 1.8rem;
+  }
+
+  .programs-row2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.8rem;
+  }
+
+  .program-card {
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(0,0,0,0.07);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .program-card:hover { transform: translateY(-7px); box-shadow: 0 14px 40px rgba(0,0,0,0.1); }
+
+  .program-header {
+    padding: 2rem 1.8rem 1.2rem;
+    display: flex; align-items: center; gap: 1rem;
+  }
+
+  .prog-icon {
+    width: 54px; height: 54px;
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.7rem;
+    flex-shrink: 0;
+  }
+
+  .program-header h3 { font-size: 1.1rem; color: var(--dark); line-height: 1.3; }
+
+  .program-body { padding: 0 1.8rem 1.8rem; }
+  .program-body p { font-size: 0.88rem; line-height: 1.8; color: #5a6b60; }
+
+  .prog-tag {
+    display: inline-block;
+    margin-top: 1rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--green);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 2px solid var(--gold);
+    padding-bottom: 2px;
+  }
+
+  /* QUOTE STRIP */
+  .quote-strip {
+    background: linear-gradient(135deg, var(--green) 0%, #0a2e18 100%);
+    padding: 70px 8%;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .quote-strip::before {
+    content: '"';
+    position: absolute;
+    top: -30px; left: 4%;
+    font-size: 18rem;
+    font-family: 'Playfair Display', serif;
+    color: rgba(255,255,255,0.04);
+    line-height: 1;
+  }
+
+  .quote-strip blockquote {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    color: var(--white);
+    line-height: 1.55;
+    max-width: 680px;
+    margin: 0 auto 1rem;
+    font-style: italic;
+    position: relative; z-index: 2;
+  }
+
+  .quote-strip cite { font-size: 0.9rem; color: var(--gold); font-style: normal; font-weight: 700; }
+
+  /* ===== GET INVOLVED ===== */
+  #get-involved { background: var(--cream); }
+
+  #get-involved h2 { font-size: 2.5rem; color: var(--dark); margin-bottom: 0.5rem; }
+  #get-involved .sub { font-size: 1rem; color: #5a6b60; max-width: 560px; line-height: 1.8; margin-bottom: 3rem; }
+
+  .involve-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  .ways-list { display: flex; flex-direction: column; gap: 1.2rem; }
+
+  .way-item {
+    display: flex; align-items: flex-start; gap: 1.2rem;
+    background: var(--white);
+    border-radius: 10px;
+    padding: 1.4rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    transition: transform 0.2s;
+  }
+
+  .way-item:hover { transform: translateX(6px); }
+
+  .way-icon {
+    font-size: 1.8rem;
+    width: 52px; height: 52px;
+    display: flex; align-items: center; justify-content: center;
+    background: var(--cream);
+    border-radius: 8px;
+    flex-shrink: 0;
+  }
+
+  .way-text h4 { font-size: 0.97rem; color: var(--dark); margin-bottom: 0.3rem; }
+  .way-text p { font-size: 0.86rem; color: #5a6b60; line-height: 1.65; }
+
+  .involve-form {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 2.5rem;
+    box-shadow: 0 6px 30px rgba(0,0,0,0.08);
+  }
+
+  .involve-form h3 { font-size: 1.45rem; color: var(--dark); margin-bottom: 0.3rem; }
+  .involve-form .form-sub { font-size: 0.86rem; color: #7a8b80; margin-bottom: 1.5rem; }
+
+  .form-group { margin-bottom: 1rem; }
+
+  .form-group label {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 0.35rem;
+    letter-spacing: 0.4px;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    padding: 11px 14px;
+    border: 1.5px solid #dce8e0;
+    border-radius: 6px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.9rem;
+    color: var(--text);
+    background: var(--cream);
+    transition: border-color 0.2s;
+    outline: none;
+  }
+
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus { border-color: var(--green-light); }
+
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+  .form-submit {
+    width: 100%;
+    padding: 13px;
+    background: var(--green);
+    color: var(--white);
+    border: none;
+    border-radius: 6px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.97rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+    margin-top: 0.5rem;
+  }
+
+  .form-submit:hover { background: var(--green-light); transform: translateY(-2px); }
+
+  /* ===== RESOURCES ===== */
+  #resources { background: var(--white); }
+  #resources h2 { font-size: 2.3rem; color: var(--dark); margin-bottom: 0.5rem; }
+
+  .resources-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 3rem;
+    margin-top: 3rem;
+  }
+
+  .blog-list { display: flex; flex-direction: column; gap: 1.4rem; }
+
+  .blog-card {
+    display: flex; gap: 1.4rem;
+    padding: 1.4rem;
+    border: 1px solid #e8f0ea;
+    border-radius: 10px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+
+  .blog-card:hover { border-color: var(--green-light); box-shadow: 0 4px 16px rgba(46,160,80,0.1); }
+
+  .blog-thumb {
+    width: 76px; height: 76px;
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.9rem;
+    flex-shrink: 0;
+  }
+
+  .blog-meta { font-size: 0.73rem; color: #8a9b90; margin-bottom: 0.35rem; text-transform: uppercase; letter-spacing: 1px; }
+
+  .blog-card h4 { font-size: 0.97rem; color: var(--dark); margin-bottom: 0.3rem; line-height: 1.4; }
+  .blog-card p { font-size: 0.84rem; color: #6a7b70; line-height: 1.65; }
+
+  .blog-read { font-size: 0.78rem; font-weight: 700; color: var(--green-light); text-decoration: none; display: inline-block; margin-top: 0.3rem; }
+
+  .resources-sidebar { display: flex; flex-direction: column; gap: 1.4rem; }
+
+  .download-card {
+    background: var(--cream);
+    border-radius: 10px;
+    padding: 1.3rem;
+    display: flex; align-items: center; gap: 1rem;
+    text-decoration: none;
+    transition: transform 0.2s;
+    border: 1px solid #dce8e0;
+  }
+
+  .download-card:hover { transform: translateY(-4px); }
+
+  .dl-icon {
+    width: 46px; height: 46px;
+    background: var(--green);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.3rem;
+    flex-shrink: 0;
+  }
+
+  .dl-info h4 { font-size: 0.88rem; color: var(--dark); margin-bottom: 0.2rem; }
+  .dl-info span { font-size: 0.76rem; color: #8a9b90; }
+
+  .sidebar-impact {
+    background: var(--green);
+    border-radius: 12px;
+    padding: 1.5rem;
+    color: var(--white);
+  }
+
+  .sidebar-impact h3 { font-size: 1rem; color: var(--gold); margin-bottom: 1rem; }
+
+  .impact-item {
+    display: flex; gap: 0.8rem;
+    align-items: flex-start;
+    margin-bottom: 0.9rem;
+    padding-bottom: 0.9rem;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .impact-item:last-child { border: none; margin: 0; padding: 0; }
+  .impact-item .emoji { font-size: 1.4rem; }
+  .impact-item p { font-size: 0.82rem; line-height: 1.6; color: rgba(255,255,255,0.8); }
+
+  /* ===== CONTACT ===== */
+  #contact { background: var(--dark); }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .contact-info h2 { font-size: 2.3rem; color: var(--white); margin-bottom: 1rem; }
+  .contact-info > p { font-size: 0.97rem; color: rgba(255,255,255,0.62); line-height: 1.8; margin-bottom: 2.5rem; }
+
+  .contact-details { display: flex; flex-direction: column; gap: 1.2rem; }
+
+  .contact-item { display: flex; align-items: flex-start; gap: 1rem; }
+
+  .contact-icon {
+    width: 42px; height: 42px;
+    background: rgba(230,168,0,0.12);
+    border: 1px solid rgba(230,168,0,0.28);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+  }
+
+  .contact-item h4 { font-size: 0.75rem; color: var(--gold); margin-bottom: 0.2rem; letter-spacing: 1px; text-transform: uppercase; }
+  .contact-item p { font-size: 0.9rem; color: rgba(255,255,255,0.68); }
+  .contact-item a { color: rgba(255,255,255,0.68); text-decoration: none; }
+  .contact-item a:hover { color: var(--gold); }
+
+  .social-links { display: flex; gap: 0.8rem; margin-top: 2.5rem; }
+
+  .social-btn {
+    height: 44px;
+    padding: 0 16px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    text-decoration: none;
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.6);
+    font-weight: 600;
+    gap: 6px;
+    transition: background 0.2s, border-color 0.2s, color 0.2s;
+  }
+
+  .social-btn:hover { background: rgba(230,168,0,0.15); border-color: var(--gold); color: var(--gold); }
+
+  .contact-form {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px;
+    padding: 2.5rem;
+  }
+
+  .contact-form h3 { font-size: 1.4rem; color: var(--white); margin-bottom: 1.5rem; }
+
+  .contact-form input,
+  .contact-form select,
+  .contact-form textarea {
+    width: 100%;
+    padding: 11px 14px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 6px;
+    color: var(--white);
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.9rem;
+    outline: none;
+    transition: border-color 0.2s;
+    margin-bottom: 1rem;
+  }
+
+  .contact-form input::placeholder,
+  .contact-form textarea::placeholder { color: rgba(255,255,255,0.28); }
+
+  .contact-form input:focus,
+  .contact-form textarea:focus { border-color: var(--gold); }
+
+  .contact-form textarea { height: 115px; resize: none; }
+
+  .contact-submit {
+    width: 100%;
+    padding: 13px;
+    background: var(--gold);
+    color: var(--dark);
+    border: none;
+    border-radius: 6px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.97rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+  .contact-submit:hover { background: var(--gold-dark); }
+
+  /* ===== FOOTER ===== */
+  footer {
+    background: #060d08;
+    padding: 36px 8%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid rgba(230,168,0,0.18);
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .footer-brand { display: flex; align-items: center; gap: 10px; }
+
+  .footer-logo-circle {
+    width: 38px; height: 38px;
+    border-radius: 50%;
+    background: var(--gold);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.1rem;
+  }
+
+  .footer-logo-text {
+    font-family: 'Playfair Display', serif;
+    color: var(--gold);
+    font-size: 1rem;
+    font-weight: 900;
+  }
+
+  footer p { font-size: 0.78rem; color: rgba(255,255,255,0.3); }
+
+  footer nav a {
+    color: rgba(255,255,255,0.35);
+    text-decoration: none;
+    font-size: 0.78rem;
+    margin-left: 1.4rem;
+    transition: color 0.2s;
+  }
+
+  footer nav a:hover { color: var(--gold); }
+
+  /* ===== HAMBURGER MENU ===== */
+  .nav-hamburger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+    justify-content: center;
+  }
+  .nav-hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--white);
+    border-radius: 2px;
+    transition: transform 0.3s, opacity 0.3s;
+  }
+  .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+  .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  /* ===== ANIMATION ===== */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(28px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 960px) {
+    .about-grid, .involve-grid, .resources-grid, .contact-grid { grid-template-columns: 1fr; }
+    .programs-grid, .programs-row2 { grid-template-columns: 1fr; }
+    .values-grid { grid-template-columns: repeat(2, 1fr); }
+    .hero-stats { gap: 1.5rem; flex-wrap: wrap; }
+    .mv-strip { grid-template-columns: 1fr; text-align: center; }
+    .mv-divider { display: none; }
+    .nav-hamburger { display: flex; }
+    .nav-links {
+      display: none;
+      position: absolute;
+      top: 72px;
+      left: 0;
+      width: 100%;
+      background: rgba(14,31,20,0.98);
+      flex-direction: column;
+      gap: 0;
+      padding: 0.5rem 0;
+      border-top: 1px solid rgba(230,168,0,0.2);
+    }
+    .nav-links.open { display: flex; }
+    .nav-links li { width: 100%; }
+    .nav-links a { display: block; padding: 14px 5%; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    footer { flex-direction: column; text-align: center; }
+    footer nav { margin-top: 0.3rem; }
+    footer nav a:first-child { margin-left: 0; }
+  }
+
+  .contact-form .form-group { margin-bottom: 1rem; }
+  .contact-form .form-group label { color: rgba(255,255,255,0.7); }
+  .contact-form .form-group input,
+  .contact-form .form-group select,
+  .contact-form .form-group textarea { margin-bottom: 0; }
+</style>
+</head>
+<body>
+
+<!-- SVG CICD LOGO DEFINITION (reused throughout) -->
+<svg style="display:none" xmlns="http://www.w3.org/2000/svg" id="cicd-logo-def">
+  <symbol id="cicd-logo" viewBox="0 0 100 100">
+    <!-- Gold outer ring -->
+    <circle cx="50" cy="50" r="48" fill="#e6a800" />
+    <circle cx="50" cy="50" r="42" fill="white" />
+    <!-- Tree trunk -->
+    <rect x="46" y="60" width="8" height="22" rx="3" fill="#1a7a3c"/>
+    <!-- Tree canopy left -->
+    <ellipse cx="34" cy="50" rx="15" ry="18" fill="#1a7a3c"/>
+    <!-- Tree canopy right -->
+    <ellipse cx="66" cy="52" rx="13" ry="15" fill="#1a7a3c"/>
+    <!-- Tree canopy top center -->
+    <ellipse cx="50" cy="36" rx="16" ry="18" fill="#1a7a3c"/>
+    <!-- Person top -->
+    <circle cx="50" cy="27" r="4" fill="#e6a800"/>
+    <line x1="50" y1="31" x2="50" y2="39" stroke="#e6a800" stroke-width="2.5"/>
+    <line x1="44" y1="34" x2="56" y2="34" stroke="#e6a800" stroke-width="2.5"/>
+    <line x1="50" y1="39" x2="45" y2="44" stroke="#e6a800" stroke-width="2.5"/>
+    <line x1="50" y1="39" x2="55" y2="44" stroke="#e6a800" stroke-width="2.5"/>
+    <!-- Person bottom right -->
+    <circle cx="63" cy="51" r="3" fill="#e6a800"/>
+    <line x1="63" y1="54" x2="63" y2="60" stroke="#e6a800" stroke-width="2"/>
+    <line x1="59" y1="57" x2="67" y2="57" stroke="#e6a800" stroke-width="2"/>
+    <line x1="63" y1="60" x2="60" y2="65" stroke="#e6a800" stroke-width="2"/>
+    <line x1="63" y1="60" x2="66" y2="65" stroke="#e6a800" stroke-width="2"/>
+    <!-- Child left (crawling) -->
+    <circle cx="34" cy="57" r="3" fill="#e6a800"/>
+    <ellipse cx="32" cy="62" rx="6" ry="3" fill="#e6a800"/>
+  </symbol>
+</svg>
+
+<!-- NAV -->
+<nav aria-label="Main navigation">
+  <a href="#home" class="nav-brand">
+    <div class="nav-logo-img">
+      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <use href="#cicd-logo"/>
+      </svg>
+    </div>
+    <div class="nav-logo-text">
+      <span class="nav-logo-abbr">CICD</span>
+      <span class="nav-logo-full">Center for Individual & Child Development</span>
+    </div>
+  </a>
+  <ul class="nav-links" id="nav-menu">
+    <li><a href="#about">About</a></li>
+    <li><a href="#programs">Programs</a></li>
+    <li><a href="#get-involved">Get Involved</a></li>
+    <li><a href="#resources">Resources</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#get-involved" class="nav-cta">Donate Now</a></li>
+  </ul>
+  <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</nav>
+
+<main>
+<!-- HERO -->
+<section id="home">
+  <div class="hero-tree-bg">🌳</div>
+  <div class="hero-content">
+    <div class="hero-badge">
+      <span class="hero-badge-logo">
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="width:22px;height:22px;border-radius:50%;"><use href="#cicd-logo"/></svg>
+      </span>
+      Est. May 31, 2017 · CAC/IT/NO 98428
+    </div>
+    <h1 class="hero-headline">
+      Building Lives.<br>
+      Ending Violence.<br>
+      <span>Growing Futures.</span>
+    </h1>
+    <p class="hero-mission">
+      Center for Individual and Child Development (CICD) is a non-profit catalyst for collective action — developing and delivering models that improve the educational, health, social, and economic conditions of women, youths, and children across Nigeria.
+    </p>
+    <div class="hero-btns">
+      <a href="#get-involved" class="btn btn-gold">Donate Now</a>
+      <a href="#get-involved" class="btn btn-primary">Get Involved</a>
+      <a href="#programs" class="btn btn-outline">Our Programs</a>
+    </div>
+    <p class="hero-reg">Registered with Corporate Affairs Commission · RC CAC/IT/NO 98428</p>
+    <div class="hero-stats">
+      <div>
+        <span class="stat-num">3 LGAs</span>
+        <span class="stat-label">Kosofe, Somolu & Ikorodu</span>
+      </div>
+      <div>
+        <span class="stat-num">110+</span>
+        <span class="stat-label">Schools in Education District 2</span>
+      </div>
+      <div>
+        <span class="stat-num">5</span>
+        <span class="stat-label">Active Programs</span>
+      </div>
+      <div>
+        <span class="stat-num">Since 2017</span>
+        <span class="stat-label">Serving Nigeria</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MISSION / VISION STRIP -->
+<div class="mv-strip">
+  <div class="mv-item">
+    <h3>Our Mission</h3>
+    <p>Working with partners and groups within the community for the total development of individuals — especially women, youths and children — through strengthening their capacity and implementing programs, humanitarian and protection interventions, with the aim of educating, empowering, reducing poverty, and creating a stabilised, healthy and protective environment for all.</p>
+  </div>
+  <div class="mv-divider"></div>
+  <div class="mv-item">
+    <h3>Our Vision</h3>
+    <p>To provide and create an appropriate enabling environment for the survival, development and protection of all individuals; especially youths, children and women — including their full participation in the affairs of society.</p>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-visual">
+      <div class="about-logo-box">
+        <svg class="about-cicd-logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <use href="#cicd-logo"/>
+        </svg>
+      </div>
+      <div class="about-badge">Est. 31 May 2017<br>Lagos, Nigeria</div>
+    </div>
+    <div class="about-text">
+      <span class="section-label">Who We Are</span>
+      <h2>A Catalyst for Community Change</h2>
+      <p>Center for Individual and Child Development (CICD) began operations on the 31st of May 2017. We are a non-profit organisation that serves as a catalyst for collective action — developing and delivering models that change systems and improve educational, health, social, cultural and economic conditions of individuals, especially women, youths and children in Nigerian society.</p>
+      <p>Our activities are aimed at creating a balanced society where everyone is given equal opportunity for advancement and positive development. We mobilise communities and create awareness on educational, economic, psychological, emotional and health issues for sustainable development.</p>
+      <p>From Lagos to communities across Nigeria, we have built grassroots programs that speak to the real challenges families face — violence, mental health stigma, poverty, lack of mentorship. We do not just talk about change. We walk into communities and build it together.</p>
+      <span class="reg-chip">🏛️ CAC Registered · CAC/IT/NO 98428 · Since 15 June 2017</span>
+    </div>
+  </div>
+</section>
+
+<!-- CORE VALUES -->
+<section class="values-section">
+  <span class="section-label">Core Values</span>
+  <h2>The Principles We Live By — CRC TIN PARTH</h2>
+  <p class="values-sub">Every decision, program and interaction at CICD is guided by these ten foundational values.</p>
+  <div class="values-grid">
+    <div class="value-card">
+      <div class="value-icon">🤝</div>
+      <h4>Commitment</h4>
+      <p>Unwavering dedication to the communities and individuals we serve, through every challenge.</p>
+    </div>
+    <div class="value-card">
+      <div class="value-icon">🔗</div>
+      <h4>Networking</h4>
+      <p>Building powerful partnerships with organisations, government and community groups to multiply impact.</p>
+    </div>
+    <div class="value-card">
+      <div class="value-icon">✅</div>
+      <h4>Accountability</h4>
+      <p>Maintaining full transparency with donors, partners and beneficiaries on how resources are used.</p>
+    </div>
+    <div class="value-card">
+      <div class="value-icon">🎯</div>
+      <h4>Responsibility</h4>
+      <p>Taking ownership of outcomes and delivering on every promise made to the communities we serve.</p>
+    </div>
+    <div class="value-card">
+      <div class="value-icon">📊</div>
+      <h4>Performance</h4>
+      <p>Striving for excellence in every program — measuring results and continuously improving delivery.</p>
+    </div>
+    <div class="value-card">
+      <div class="value-icon">🫶</div>
+      <h4>Respect for Others</h4>
+      <p>Treating every individual with dignity regardless of gender, background, age or circumstance.</p>
+    </div>
+    <div class="value-card">
+      <div class="value-icon">🔒</div>
+      <h4>Confidentiality</h4>
+      <p>Safeguarding the privacy and personal information of all beneficiaries, clients and partners.</p>
+    </div>
+    <div class="value-card">
+      <div class="value-icon">👥</div>
+      <h4>Teamwork</h4>
+      <p>Collaborating across our volunteer team, staff and partners to achieve goals no one can reach alone.</p>
+    </div>
+    <div class="value-card">
+      <div class="value-icon">⚖️</div>
+      <h4>Human Rights</h4>
+      <p>Championing the rights of every child, woman and youth to safety, education and opportunity.</p>
+    </div>
+    <div class="value-card">
+      <div class="value-icon">💡</div>
+      <h4>Transparency & Innovation</h4>
+      <p>Open, honest operations — and always seeking creative, evidence-based solutions to community challenges.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAMS -->
+<section id="programs">
+  <span class="section-label">Our Programs</span>
+  <h2>Five Programs. One Purpose.</h2>
+  <p class="intro">Since 2017, CICD has developed a suite of targeted programs addressing violence, mental health, mentorship and community empowerment across Lagos and beyond.</p>
+
+  <div class="programs-grid">
+    <!-- Zero Violence Ambassadors -->
+    <div class="program-card">
+      <div class="program-header">
+        <div class="prog-icon" style="background:#e8f5ee;">🏅</div>
+        <h3>Zero Violence Ambassadors Project</h3>
+      </div>
+      <div class="program-body">
+        <p>Our flagship program covers 3 Local Government Areas and 110 schools in Lagos Education District 2. Currently active in Kosofe and Somolu (with Ikorodu next), it trains young people as peer ambassadors who champion violence-free environments in their schools.</p>
+        <p>School mentors visit every Wednesday from 12–2pm using our structured curriculum, workbook and logbooks. Ambassadors spot peers in violent situations and escalate to our team for intervention. Our long-term goal: a national club of Zero Violence Ambassadors.</p>
+        <span class="prog-tag">School Project · Community Mobilisation · Research</span>
+      </div>
+    </div>
+
+    <!-- Annual Workshop -->
+    <div class="program-card">
+      <div class="program-header">
+        <div class="prog-icon" style="background:#fff5e0;">🎙️</div>
+        <h3>Annual Workshop</h3>
+      </div>
+      <div class="program-body">
+        <p>Launched in 2018 to break the silence around suicide and depression in Nigeria, our Annual Workshop brings together experts, community members and affected individuals to have open, stigma-free conversations on pressing social issues.</p>
+        <p>Each edition builds on the last, evolving our approach based on field learnings and community needs. These workshops are designed to not only raise awareness — but to find lasting, actionable solutions.</p>
+        <span class="prog-tag">Mental Health · Community · Open Dialogue</span>
+      </div>
+    </div>
+
+    <!-- Walk In Talk Clinic -->
+    <div class="program-card">
+      <div class="program-header">
+        <div class="prog-icon" style="background:#f0f4ff;">💬</div>
+        <h3>Walk-In Talk Clinic</h3>
+      </div>
+      <div class="program-body">
+        <p>Established on 3rd August 2018, our free Talk Clinic uses talk therapy to help individuals experiencing depression or trauma identify and face their emotions — breaking the culture of silence and stigma around mental illness in Nigeria.</p>
+        <p>Originally physical, we moved the clinic online in 2020. Today, volunteer social workers, counsellors and therapists serve clients remotely, ensuring nobody faces their darkness alone — regardless of finances.</p>
+        <span class="prog-tag">Free · Online · Volunteer-Powered</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="programs-row2">
+    <!-- Monthly Instalive -->
+    <div class="program-card">
+      <div class="program-header">
+        <div class="prog-icon" style="background:#fde8f5;">📱</div>
+        <h3>Monthly Instagram Live — Mental Health</h3>
+      </div>
+      <div class="program-body">
+        <p>Every month, we host a live Instagram event featuring field experts and practitioners addressing mental health topics. The program helps viewers — across Nigeria and the diaspora — find clarity, healing and practical steps forward.</p>
+        <p>It is one of our most accessible interventions, reaching thousands of Nigerians who may never walk into a clinic but who are quietly struggling. Follow us <strong>@Cicdngo</strong> to join our next session.</p>
+        <span class="prog-tag">Monthly · Instagram · Free Access</span>
+      </div>
+    </div>
+
+    <!-- Girls & Mentors -->
+    <div class="program-card">
+      <div class="program-header">
+        <div class="prog-icon" style="background:#fff0e0;">👩🏽‍🎓</div>
+        <h3>Girls & Mentors — Hope Rising</h3>
+      </div>
+      <div class="program-body">
+        <p>Girls & Mentors (Hope Rising) provides early intervention and prevention services to 100 high-risk out-of-school young females facing poverty, domestic violence, teenage pregnancy, drug abuse, and trafficking through structured mentoring relationships.</p>
+        <p>Our 3-year strategy equips girls with career guidance, entrepreneurship skills, financial literacy, and empowers them to recognise and escape cycles of violence and exploitation — so every girl can rise.</p>
+        <span class="prog-tag">Girls · Mentorship · Empowerment · 3-Year Plan</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE STRIP -->
+<div class="quote-strip">
+  <span class="section-label" style="border-color:var(--gold); color:var(--gold);">Our Belief</span>
+  <blockquote>
+    "Violent behaviours can be learnt — and they can be unlearnt. With the right environment, every child, every woman, every community can be free."
+  </blockquote>
+  <cite>— CICD, Center for Individual and Child Development</cite>
+</div>
+
+<!-- GET INVOLVED -->
+<section id="get-involved">
+  <span class="section-label">Get Involved</span>
+  <h2>You Can Be the Change</h2>
+  <p class="sub">Join thousands of Nigerians choosing to act. Whether you volunteer, donate, or simply spread the word — your action moves our mission forward.</p>
+
+  <div class="involve-grid">
+    <div class="ways-list">
+      <div class="way-item">
+        <div class="way-icon">🙋🏾</div>
+        <div class="way-text">
+          <h4>Volunteer as a School Mentor</h4>
+          <p>Join our team of young mentors who visit schools every Wednesday to teach, guide and protect at-risk students. Full curriculum training provided.</p>
+        </div>
+      </div>
+      <div class="way-item">
+        <div class="way-icon">🧑🏾‍⚕️</div>
+        <div class="way-text">
+          <h4>Volunteer as a Counsellor or Therapist</h4>
+          <p>Social workers, counsellors and therapists can volunteer time to our online Talk Clinic and support individuals experiencing depression and trauma.</p>
+        </div>
+      </div>
+      <div class="way-item">
+        <div class="way-icon">💛</div>
+        <div class="way-text">
+          <h4>Donate</h4>
+          <p>Every naira makes a difference. Fund workshops, mentorship sessions, IEC materials and community outreach programs reaching children and women across Lagos.</p>
+        </div>
+      </div>
+      <div class="way-item">
+        <div class="way-icon">🏫</div>
+        <div class="way-text">
+          <h4>Partner Your School or Organisation</h4>
+          <p>We welcome schools, businesses, faith organisations and government agencies to formally partner with CICD to extend our reach to your community.</p>
+        </div>
+      </div>
+      <div class="way-item">
+        <div class="way-icon">📣</div>
+        <div class="way-text">
+          <h4>Spread the Word</h4>
+          <p>Follow @Cicdngo on Facebook and Instagram. Share our stories. Every share is a child who might find help. Awareness is always the first step.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="involve-form">
+      <h3>Join CICD Today</h3>
+      <p class="form-sub">Fill this form and our team will reach out within 48 hours.</p>
+      <form method="post">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="join-firstname">First Name</label>
+          <input type="text" id="join-firstname" name="first_name" placeholder="Adaeze" required autocomplete="given-name">
+        </div>
+        <div class="form-group">
+          <label for="join-lastname">Last Name</label>
+          <input type="text" id="join-lastname" name="last_name" placeholder="Okafor" required autocomplete="family-name">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="join-email">Email Address</label>
+        <input type="email" id="join-email" name="email" placeholder="you@email.com" required autocomplete="email">
+      </div>
+      <div class="form-group">
+        <label for="join-phone">Phone Number</label>
+        <input type="tel" id="join-phone" name="phone" placeholder="+234 800 000 0000" autocomplete="tel">
+      </div>
+      <div class="form-group">
+        <label for="join-interest">I want to...</label>
+        <select id="join-interest" name="interest">
+          <option value="">Select an option</option>
+          <option value="school-mentor">Volunteer as a School Mentor</option>
+          <option value="counsellor">Volunteer as a Counsellor / Therapist</option>
+          <option value="donate">Make a Donation</option>
+          <option value="partner">Partner with CICD (Organisation)</option>
+          <option value="girls-mentors">Join Girls &amp; Mentors Program</option>
+          <option value="workshop">Attend an Annual Workshop</option>
+          <option value="learn-more">Learn More</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="join-lga">Your Local Government / State</label>
+        <select id="join-lga" name="lga">
+          <option value="kosofe">Kosofe LGA, Lagos</option>
+          <option value="somolu">Somolu LGA, Lagos</option>
+          <option value="ikorodu">Ikorodu LGA, Lagos</option>
+          <option value="other-lagos">Other LGA, Lagos</option>
+          <option value="outside-lagos">Outside Lagos</option>
+        </select>
+      </div>
+      <button type="submit" class="form-submit">Submit — Join the Movement →</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- RESOURCES -->
+<section id="resources">
+  <span class="section-label">Resources & Blog</span>
+  <h2>Know More. Do More. Share More.</h2>
+
+  <div class="resources-grid">
+    <div class="blog-list">
+      <div class="blog-card">
+        <div class="blog-thumb" style="background:#e8f5ee;">🏅</div>
+        <div>
+          <div class="blog-meta">Zero Violence · School Project</div>
+          <h4>How the Zero Violence Ambassadors Project is Changing Schools in Lagos</h4>
+          <p>From Kosofe to Somolu — how 110 schools are building a new generation of young Nigerians who refuse to accept violence as normal.</p>
+          <a href="#" class="blog-read">Read More →</a>
+        </div>
+      </div>
+      <div class="blog-card">
+        <div class="blog-thumb" style="background:#fff5e0;">💬</div>
+        <div>
+          <div class="blog-meta">Mental Health · Talk Clinic</div>
+          <h4>Breaking the Silence: Why CICD's Free Talk Clinic Matters More Than Ever</h4>
+          <p>Depression is not weakness. Our walk-in talk clinic has been supporting Nigerians with free counselling since 2018 — now fully online.</p>
+          <a href="#" class="blog-read">Read More →</a>
+        </div>
+      </div>
+      <div class="blog-card">
+        <div class="blog-thumb" style="background:#fde8f5;">👩🏽‍🎓</div>
+        <div>
+          <div class="blog-meta">Girls · Mentorship · Hope Rising</div>
+          <h4>Girls & Mentors (Hope Rising): Giving 100 Girls a Chance at a Different Story</h4>
+          <p>Meet the out-of-school young women whose lives are being transformed through mentorship, financial literacy, and zero-tolerance values.</p>
+          <a href="#" class="blog-read">Read More →</a>
+        </div>
+      </div>
+      <div class="blog-card">
+        <div class="blog-thumb" style="background:#f0f4ff;">🏘️</div>
+        <div>
+          <div class="blog-meta">Community · Sensitization</div>
+          <h4>Why CICD Talks to Baales, CDA Leaders and Iyalojas — Not Just Parents</h4>
+          <p>Our community sensitization approach targets the gatekeepers of Nigerian communities — because sustainable change starts with those who hold influence.</p>
+          <a href="#" class="blog-read">Read More →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="resources-sidebar">
+      <div class="sidebar-impact">
+        <h3>✨ CICD in Action</h3>
+        <div class="impact-item">
+          <span class="emoji">🏫</span>
+          <p><strong>110 Schools</strong> across Education District 2 targeted by the Zero Violence Ambassadors Project in Lagos.</p>
+        </div>
+        <div class="impact-item">
+          <span class="emoji">👩🏽‍🎓</span>
+          <p><strong>Girls & Mentors</strong> reaches 100 high-risk out-of-school girls with mentorship and life skills over a 3-year plan.</p>
+        </div>
+        <div class="impact-item">
+          <span class="emoji">💬</span>
+          <p><strong>Talk Clinic</strong> has been serving Nigerians since 2018 — now fully online with volunteer counsellors and therapists.</p>
+        </div>
+        <div class="impact-item">
+          <span class="emoji">📱</span>
+          <p><strong>Monthly Instalive</strong> events reach thousands of Nigerians with expert-led mental health content every month.</p>
+        </div>
+      </div>
+
+      <a href="#" class="download-card">
+        <div class="dl-icon">📄</div>
+        <div class="dl-info">
+          <h4>CICD Zero Violence Ambassador Manual</h4>
+          <span>PDF Download · Free</span>
+        </div>
+      </a>
+      <a href="#" class="download-card">
+        <div class="dl-icon">🎥</div>
+        <div class="dl-info">
+          <h4>Annual Workshop Recording</h4>
+          <span>Video · Available Online</span>
+        </div>
+      </a>
+      <a href="#" class="download-card">
+        <div class="dl-icon">📊</div>
+        <div class="dl-info">
+          <h4>CICD Impact & Activity Report</h4>
+          <span>PDF Download · Annual Edition</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-grid">
+    <div class="contact-info">
+      <span class="section-label" style="color:var(--gold); border-color:var(--gold);">Contact Us</span>
+      <h2>We'd Love to Hear from You</h2>
+      <p>Whether you want to refer someone for support, partner with us, volunteer, or just find out more about our work — we are always happy to connect. Our team responds within 24–48 hours.</p>
+
+      <div class="contact-details">
+        <div class="contact-item">
+          <div class="contact-icon">📞</div>
+          <div>
+            <h4>Phone</h4>
+            <p><a href="tel:08033918951">08033918951</a></p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">✉️</div>
+          <div>
+            <h4>Email</h4>
+            <p><a href="mailto:Cicdngo@yahoo.com">Cicdngo@yahoo.com</a></p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">📘</div>
+          <div>
+            <h4>Facebook</h4>
+            <p><a href="https://facebook.com/Cicdngo" target="_blank" rel="noopener noreferrer">@Cicdngo</a></p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">📸</div>
+          <div>
+            <h4>Instagram</h4>
+            <p><a href="https://instagram.com/Cicdngo" target="_blank" rel="noopener noreferrer">@Cicdngo</a></p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">🏛️</div>
+          <div>
+            <h4>CAC Registration</h4>
+            <p>CAC/IT/NO 98428 · Registered 15 June 2017</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="social-links">
+        <a href="https://facebook.com/Cicdngo" target="_blank" rel="noopener noreferrer" class="social-btn">📘 @Cicdngo</a>
+        <a href="https://instagram.com/Cicdngo" target="_blank" rel="noopener noreferrer" class="social-btn">📸 @Cicdngo</a>
+        <a href="mailto:Cicdngo@yahoo.com" class="social-btn">✉️ Email Us</a>
+      </div>
+    </div>
+
+    <div class="contact-form">
+      <h3>Send Us a Message</h3>
+      <form method="post">
+      <div class="form-group">
+        <label for="contact-name">Full Name</label>
+        <input type="text" id="contact-name" name="name" placeholder="Your Full Name" required autocomplete="name">
+      </div>
+      <div class="form-group">
+        <label for="contact-email">Email Address</label>
+        <input type="email" id="contact-email" name="email" placeholder="Your Email Address" required autocomplete="email">
+      </div>
+      <div class="form-group">
+        <label for="contact-phone">Phone Number</label>
+        <input type="tel" id="contact-phone" name="phone" placeholder="Phone Number (e.g. 0803 391 8951)" autocomplete="tel">
+      </div>
+      <div class="form-group">
+        <label for="contact-reason">Reason for Contacting</label>
+        <select id="contact-reason" name="reason">
+          <option value="">Reason for contacting...</option>
+          <option value="referral">Referring a child or young person</option>
+          <option value="mental-health">Requesting mental health support</option>
+          <option value="volunteering">Volunteering</option>
+          <option value="partnership">Partnership / Sponsorship</option>
+          <option value="media">Media Enquiry</option>
+          <option value="donation">Donation</option>
+          <option value="general">General Question</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="contact-message">Message</label>
+        <textarea id="contact-message" name="message" placeholder="Tell us more about your enquiry..."></textarea>
+      </div>
+      <button type="submit" class="contact-submit">Send Message →</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">
+    <div class="footer-logo-circle">
+      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="width:32px;height:32px;border-radius:50%;">
+        <use href="#cicd-logo"/>
+      </svg>
+    </div>
+    <span class="footer-logo-text">CICD</span>
+  </div>
+  <p>© 2026 Center for Individual and Child Development · CAC/IT/NO 98428 · All rights reserved.</p>
+  <nav aria-label="Footer navigation">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#programs">Programs</a>
+    <a href="#get-involved">Get Involved</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</footer>
+
+<script>
+  const hamburger = document.getElementById('nav-hamburger');
+  const navMenu = document.getElementById('nav-menu');
+  if (hamburger && navMenu) {
+    hamburger.addEventListener('click', () => {
+      const isOpen = navMenu.classList.toggle('open');
+      hamburger.classList.toggle('open', isOpen);
+      hamburger.setAttribute('aria-expanded', String(isOpen));
+    });
+    navMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navMenu.classList.remove('open');
+        hamburger.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+</script>
+</body>
+</html>
