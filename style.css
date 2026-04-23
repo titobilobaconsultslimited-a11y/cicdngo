@@ -29,7 +29,7 @@ nav {
   backdrop-filter: blur(10px);
   display: flex; align-items: center;
   padding: 0 5%;
-  height: 72px;
+  min-height: 72px;
   border-bottom: 2px solid var(--gold);
   gap: 1.5rem;
 }
@@ -41,16 +41,12 @@ nav {
 }
 
 .nav-logo-img {
-  width: 62px; height: 62px;
-  border-radius: 50%;
-  overflow: hidden;
-  background: #fff;
   display: flex; align-items: center; justify-content: center;
   flex-shrink: 0;
 }
 
-.nav-logo-img svg { width: 58px; height: 58px; display: block; border-radius: 50%; }
-.nav-logo-img img { width: 58px; height: 58px; display: block; object-fit: contain; }
+.nav-logo-img svg { width: 60px; height: 60px; display: block; border-radius: 50%; }
+.nav-logo-img img { width: auto; height: auto; max-height: 60px; display: block; object-fit: contain; }
 
 .nav-logo-text {
   display: flex; flex-direction: column;
