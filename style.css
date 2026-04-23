@@ -39,16 +39,13 @@ nav {
 }
 
 .nav-logo-img {
-  width: 50px; height: 50px;
-  border-radius: 50%;
-  overflow: hidden;
-  box-shadow: 0 0 0 3px rgba(230,168,0,0.4);
+  width: 54px; height: 54px;
   display: flex; align-items: center; justify-content: center;
   flex-shrink: 0;
 }
 
-.nav-logo-img svg { width: 50px; height: 50px; display: block; border-radius: 50%; }
-.nav-logo-img img { width: 50px; height: 50px; display: block; border-radius: 50%; object-fit: cover; }
+.nav-logo-img svg { width: 54px; height: 54px; display: block; border-radius: 50%; }
+.nav-logo-img img { width: 54px; height: 54px; display: block; object-fit: contain; }
 
 .nav-logo-text {
   display: flex; flex-direction: column;
