@@ -77,10 +77,16 @@ nav {
   color: rgba(255,255,255,0.75);
   font-size: 16px;
   text-decoration: none;
-  transition: color 0.2s;
+  transition: opacity 0.2s;
   display: flex; align-items: center;
 }
-.nav-contact-icons a:hover { color: var(--gold); }
+.nav-contact-icons a:hover { opacity: 0.75; }
+
+.nav-social-icon {
+  width: 24px; height: 24px;
+  object-fit: contain;
+  display: block;
+}
 .nav-links a {
   color: rgba(255,255,255,0.8);
   text-decoration: none;
