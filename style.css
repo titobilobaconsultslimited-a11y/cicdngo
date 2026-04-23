@@ -47,6 +47,7 @@ nav {
 }
 
 .nav-logo-img svg { width: 50px; height: 50px; display: block; border-radius: 50%; }
+.nav-logo-img img { width: 50px; height: 50px; display: block; border-radius: 50%; object-fit: cover; }
 
 .nav-logo-text {
   display: flex; flex-direction: column;
