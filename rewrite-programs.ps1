@@ -1,3 +1,7 @@
+$dir = "c:\Users\user\Downloads\my wesite journey\cicd site"
+$utf8 = New-Object System.Text.UTF8Encoding $false
+
+$programs = @'
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -47,7 +51,9 @@
 <nav aria-label="Main navigation">
   <a href="index.html" class="nav-brand">
     <div class="nav-logo-img">
-      <img src="media/cicd%20logo.jpeg" alt="CICD logo">
+      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <use href="#cicd-logo"/>
+      </svg>
     </div>
     <div class="nav-logo-text">
       <span class="nav-logo-abbr">CICD</span>
@@ -213,3 +219,6 @@
 <script src="main.js"></script>
 </body>
 </html>
+'@
+[System.IO.File]::WriteAllText((Join-Path $dir "programs.html"), $programs, $utf8)
+Write-Host "Written: programs.html"
