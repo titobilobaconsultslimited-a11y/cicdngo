@@ -658,53 +658,123 @@ h1.hero-headline span { color: var(--gold); }
   align-items: start;
 }
 
-.contact-info h2 { font-size: 2.3rem; color: var(--dark); margin-bottom: 1rem; }
-.contact-info > p { font-size: 0.97rem; color: var(--text); line-height: 1.8; margin-bottom: 2.5rem; }
+.contact-info h2 { font-size: 2rem; color: var(--dark); line-height: 1.2; margin-bottom: 0.6rem; }
+.contact-info > p { font-size: 0.95rem; color: var(--text); line-height: 1.8; margin-bottom: 1.8rem; }
 
-.contact-details { display: flex; flex-direction: column; gap: 1.2rem; }
+/* 2x2 info cards */
+.contact-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.9rem;
+  margin-bottom: 2rem;
+}
 
-.contact-item { display: flex; align-items: flex-start; gap: 1rem; }
+.contact-card {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  background: var(--white);
+  border: 1px solid rgba(26,122,60,0.1);
+  border-radius: 12px;
+  padding: 1rem 1.1rem;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+}
 
-.contact-icon {
-  width: 42px; height: 42px;
-  background: rgba(26,122,60,0.1);
-  border: 1px solid rgba(26,122,60,0.25);
-  border-radius: 8px;
+.contact-card:not(.contact-card-static):hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(26,122,60,0.1);
+  border-color: rgba(26,122,60,0.3);
+}
+
+.contact-card-icon {
+  width: 44px; height: 44px;
+  background: rgba(26,122,60,0.08);
+  border-radius: 10px;
   display: flex; align-items: center; justify-content: center;
-  font-size: 1.1rem;
+  font-size: 1.25rem;
   flex-shrink: 0;
 }
 
-.contact-social-icon {
+.contact-card-media {
+  background: var(--white);
+  border: 1px solid rgba(0,0,0,0.07);
+}
+
+.contact-card-media img {
   width: 28px; height: 28px;
   object-fit: contain;
   display: block;
-  border-radius: 4px;
 }
 
-.contact-item h4 { font-size: 0.75rem; color: var(--green); margin-bottom: 0.2rem; letter-spacing: 1px; text-transform: uppercase; }
-.contact-item p { font-size: 0.9rem; color: var(--text); }
-.contact-item a { color: var(--green); text-decoration: none; }
-.contact-item a:hover { color: var(--gold-dark); }
+.contact-card-label {
+  display: block;
+  font-size: 0.67rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--green);
+  margin-bottom: 0.2rem;
+}
 
-.social-links { display: flex; gap: 0.8rem; margin-top: 2.5rem; }
+.contact-card-value {
+  display: block;
+  font-size: 0.86rem;
+  color: var(--dark);
+  font-weight: 600;
+  line-height: 1.3;
+}
 
-.social-btn {
-  height: 44px;
-  padding: 0 16px;
-  background: rgba(26,122,60,0.08);
-  border: 1px solid rgba(26,122,60,0.2);
-  border-radius: 8px;
-  display: flex; align-items: center; justify-content: center;
+/* Social row */
+.contact-social-row {
+  border-top: 1px solid rgba(26,122,60,0.12);
+  padding-top: 1.5rem;
+}
+
+.contact-social-label {
+  display: block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #8a9b90;
+  margin-bottom: 0.85rem;
+}
+
+.contact-social-btns {
+  display: flex;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+}
+
+.contact-social-btn {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 0.55rem 1.1rem;
+  background: var(--white);
+  border: 1px solid rgba(26,122,60,0.15);
+  border-radius: 100px;
   text-decoration: none;
   font-size: 0.82rem;
-  color: var(--text);
   font-weight: 600;
-  gap: 6px;
-  transition: background 0.2s, border-color 0.2s, color 0.2s;
+  color: var(--dark);
+  transition: border-color 0.2s, background 0.2s, color 0.2s, transform 0.2s;
 }
 
-.social-btn:hover { background: rgba(230,168,0,0.15); border-color: var(--gold); color: var(--gold-dark); }
+.contact-social-btn img {
+  width: 20px; height: 20px;
+  object-fit: contain;
+  display: block;
+}
+
+.contact-social-btn:hover {
+  border-color: var(--gold);
+  background: rgba(230,168,0,0.08);
+  color: var(--gold-dark);
+  transform: translateY(-2px);
+}
 
 .contact-form {
   background: #ffffff;
@@ -1101,6 +1171,7 @@ footer nav a:hover { color: var(--gold); }
 /* ===== RESPONSIVE ===== */
 @media (max-width: 960px) {
   .about-grid, .involve-grid, .resources-grid, .contact-grid { grid-template-columns: 1fr; }
+  .contact-cards { grid-template-columns: 1fr 1fr; }
   .programs-grid, .programs-row2 { grid-template-columns: 1fr; }
   .progs-four-grid { grid-template-columns: 1fr; }
   .featured-prog { grid-template-columns: 1fr; padding: 2rem; }
