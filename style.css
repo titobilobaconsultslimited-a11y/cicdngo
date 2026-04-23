@@ -41,6 +41,7 @@ nav {
 .nav-logo-img {
   width: 50px; height: 50px;
   border-radius: 50%;
+  overflow: hidden;
   box-shadow: 0 0 0 3px rgba(230,168,0,0.4);
   display: flex; align-items: center; justify-content: center;
   flex-shrink: 0;
@@ -69,13 +70,14 @@ nav {
   line-height: 1.2;
 }
 
-.nav-links { display: flex; gap: 0.9rem; list-style: none; }
+.nav-links { display: flex; gap: 0.4rem; list-style: none; }
 .nav-links a {
   color: rgba(255,255,255,0.8);
   text-decoration: none;
-  font-size: 0.88rem;
+  font-size: 0.82rem;
   font-weight: 600;
-  letter-spacing: 0.4px;
+  letter-spacing: 0.3px;
+  padding: 4px 6px;
   transition: color 0.2s;
 }
 .nav-links a:hover { color: var(--gold); }
