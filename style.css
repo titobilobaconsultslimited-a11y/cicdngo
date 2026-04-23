@@ -27,7 +27,7 @@ nav {
   position: fixed; top: 0; width: 100%; z-index: 1000;
   background: rgba(14,31,20,0.97);
   backdrop-filter: blur(10px);
-  display: flex; align-items: center;
+  display: flex; align-items: center; justify-content: space-between;
   padding: 0 5%;
   min-height: 72px;
   border-bottom: 2px solid var(--gold);
@@ -68,7 +68,7 @@ nav {
   line-height: 1.2;
 }
 
-.nav-links { display: flex; gap: 0.25rem; list-style: none; margin-left: auto; align-items: center; }
+.nav-links { display: flex; gap: 0.25rem; list-style: none; align-items: center; }
 .nav-links a {
   color: rgba(255,255,255,0.8);
   text-decoration: none;
