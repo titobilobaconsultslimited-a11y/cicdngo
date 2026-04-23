@@ -67,7 +67,20 @@ nav {
   line-height: 1.2;
 }
 
-.nav-links { display: flex; gap: 30px; list-style: none; align-items: center; margin-left: auto; }
+.nav-links { display: flex; gap: 30px; list-style: none; align-items: center; }
+
+.nav-contact-icons {
+  display: flex; align-items: center; gap: 16px;
+  margin-left: auto;
+}
+.nav-contact-icons a {
+  color: rgba(255,255,255,0.75);
+  font-size: 16px;
+  text-decoration: none;
+  transition: color 0.2s;
+  display: flex; align-items: center;
+}
+.nav-contact-icons a:hover { color: var(--gold); }
 .nav-links a {
   color: rgba(255,255,255,0.8);
   text-decoration: none;
