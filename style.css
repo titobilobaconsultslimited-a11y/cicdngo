@@ -41,7 +41,11 @@ nav {
 }
 
 .nav-logo-img {
-  width: 58px; height: 58px;
+  width: 62px; height: 62px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #fff;
+  display: flex; align-items: center; justify-content: center;
   flex-shrink: 0;
 }
 
